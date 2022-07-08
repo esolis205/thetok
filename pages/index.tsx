@@ -1,11 +1,12 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <div className=' bg-slate-800 h-24 w-24 text-white'>
-      TheTok
-    </div>
-  )
-}
+      <div className=" text-lg text-[rgb(185,74,189)] underline font-bold">
+        TheTok
+      </div>
+  );
+};
 
-export default Home
+export default Home;

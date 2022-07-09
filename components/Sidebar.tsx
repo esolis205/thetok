@@ -8,6 +8,7 @@ import { ImCancelCircle } from "react-icons/im";
 import Discover from "./Discover";
 import Footer from "./Footer";
 import SuggestedAccounts from "./SuggestedAccounts";
+import { MdPeopleAlt, MdOutlineVideocam } from "react-icons/md";
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -37,6 +38,26 @@ const Sidebar = () => {
                   <AiFillHome />
                 </p>
                 <span className=" text-xl hidden xl:block">For you</span>
+              </div>
+            </Link>
+          </div>
+          <div className=" xl:border-b-2 border-gray-200 xl:pb-4 pt-2">
+            <Link href="/">
+              <div className={normalLink}>
+                <p className=" text-2xl">
+                  <MdPeopleAlt />
+                </p>
+                <span className=" text-xl hidden xl:block">Following</span>
+              </div>
+            </Link>
+          </div>
+          <div className=" xl:border-b-2 border-gray-200 xl:pb-4 pt-2">
+            <Link href="/">
+              <div className={normalLink}>
+                <p className=" text-2xl">
+                  <MdOutlineVideocam />
+                </p>
+                <span className=" text-xl hidden xl:block">Live</span>
               </div>
             </Link>
           </div>

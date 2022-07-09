@@ -34,3 +34,17 @@ a {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+@layer components{
+  @keyframes pulse {
+    50%{
+      box-shadow: 0 0 4px 4px #c7d1c9;
+    }
+    100%{
+      box-shadow: 0 0 4px 4px #c7d1c9;
+    }
+  }
+
+  .pulse {
+    animation: pulse 4s infinite ease-out;
+  }
+}

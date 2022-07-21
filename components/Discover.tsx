@@ -5,9 +5,12 @@ import { useRouter } from 'next/router'
 import { topics } from '../utils/constants';
 
 const Discover = () => {
-const activeTopicStyle = "";
+const router = useRouter();
+const { topic } = router.query;
 
-const topicStyle = "";
+const activeTopicStyle = "xl:border-2 hover:bg-primary xl:border-blue-500 px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-blue-500 dark:text-blue-500 gap-2";
+
+const topicStyle = "xl:border-2 hover:bg-primary xl:border-black dark:xl:border-[#F51997] px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-black dark:text-[#F51997] gap-2";
 
   return (
     <div className=" dark:text-white xl:border-b-2 xl:border-gray-200 pb-6">
@@ -19,11 +22,11 @@ const topicStyle = "";
           <Link 
           href={`/?topic=${item.name}`} 
           key={item.name}>
-            <div>
-              <span className=" font-bold text-2xl xl:text-md dark:text-[#F51997]">
+            <div className={topic === item.name ? activeTopicStyle : topicStyle}>
+              <span className=" font-bold text-2xl xl:text-md">
                 {item.icon}
               </span>
-              <span className=" font-medium text-md hidden xl:block capitalize dark:text-[#F51997]">
+              <span className=" font-medium text-md hidden xl:block capitalize">
                 {item.name}
               </span>
             </div>

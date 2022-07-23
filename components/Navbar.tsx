@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { useRouter } from "next/router";
 import { MdOutlineLogout } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
@@ -17,6 +16,20 @@ import { error } from "console";
 const Navbar = () => {
   const [useDarkMode, setUseDarkMode] = useState(false);
   const { userProfile, addUser, removeUser } = useAuthStore();
+  const [searchValue, setSearchValue] = useState('');
+
+  const router = useRouter()
+
+
+  const handleSearch = (e: {
+    preventDefault: () => void
+  }) => {
+    e.preventDefault();
+
+    if(searchValue) {
+      router.push(`/search/${searchValue}`);
+    }
+  }
 
   return (
     <div
@@ -34,7 +47,29 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <div>SEARCH</div>
+
+      <div className=" relative hidden md:block">
+        <form 
+         onSubmit={handleSearch}
+         className="absolute md:static top-10 -left-20 bg-white"
+        >
+          <input 
+           type='text' 
+           value={searchValue}
+           onChange={(e) => setSearchValue(e.target.value)} 
+           placeholder="Search accounts and videos"
+           className="bg-primary p-3 md:text-md font-medium b-2 border-gray-100 
+           focus:outline-none focus:border-2 focus:border-gray-200 w-[300px] md:w-[350px] rounded-full md:top-0"
+          />
+          <button
+           onClick={handleSearch}
+           className="absolute md:right-5 right-6 top-4 border-l-2 border-gray-300 pl-4 text-2xl text-gray-400"
+          >
+            <BiSearch />
+          </button>
+        </form>
+      </div>
+
       <div>{userProfile ? (
           <div className=" flex gap-5 md:gap-10">
             <Link href="/upload">

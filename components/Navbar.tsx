@@ -31,6 +31,10 @@ const Navbar = () => {
     }
   }
 
+  const inDarkMode = document.documentElement.classList.add("dark");
+
+  const offDarkMode = document.documentElement.classList.remove("dark");
+
   return (
     <div
       className=" w-full flex justify-between items-center 
@@ -119,8 +123,8 @@ const Navbar = () => {
       >
         <>
           {useDarkMode
-            ? document.documentElement.classList.add("dark")
-            : document.documentElement.classList.remove("dark")}
+            ? inDarkMode
+            : offDarkMode}
         </>
         <div className=" dark:text-white">
           {useDarkMode ? (

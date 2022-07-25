@@ -118,6 +118,7 @@ const Navbar = () => {
         onClick={() => setUseDarkMode((prev) => !prev)}
       >
         <>
+        {}
           {useDarkMode
             ? document.documentElement.classList.add("dark")
             : document.documentElement.classList.remove("dark")}

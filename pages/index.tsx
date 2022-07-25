@@ -31,6 +31,7 @@ export const getServerSideProps = async ({
   query: { topic }
 }: {
   query: { topic: string }
+  
 }) => {
   let response = null;
   if(topic){

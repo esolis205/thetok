@@ -12,9 +12,8 @@ import { BASE_URL } from "../utils";
 
 const Upload = () => {
   const [isLoading, setIsLoading] = useState(false);
-
+  const [topic, setTopic] = useState<String>(topics[0].name);
   const [videoAsset, setVideoAsset] = useState<SanityAssetDocument | undefined>();
-
   const [wrongFileType, setWrongFileType] = useState(false);
   const [caption, setCaption] = useState('');
   const [category, setCategory] = useState(topics[0].name);
@@ -24,9 +23,14 @@ const Upload = () => {
   const { userProfile }: {userProfile: any} = useAuthStore();
   const router = useRouter();
 
+  useEffect(() => {
+    if (!userProfile) router.push('/');
+  }, [userProfile, router])
+  
+
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
-    const fileTypes = ["video/mp4", "video/webm", "video/ogg"];
+    const fileTypes = ["video/mp4", "video/webm", "video/ogg", "video/MOV"];
 
     if (fileTypes.includes(selectedFile.type)) {
       client.assets
@@ -70,8 +74,14 @@ const Upload = () => {
 
         router.push('/');
     }
-}
+};
 
+  const handleDiscard = () => {
+    setSavingPost(false);
+    setVideoAsset(undefined);
+    setCaption('');
+    setTopic('');
+  }
   return (
     <div className=" flex w-full h-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] dark:bg-[#000] justify-center">
       <div className=" bg-white dark:bg-[#414242] rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-between items-center p-14 pt-6 w-[60%]">
@@ -158,7 +168,7 @@ const Upload = () => {
             </select>
             <div className=" flex gap-6 mt-10">
                 <button 
-                onClick={() => {}}
+                onClick={handleDiscard}
                 type='button'
                 className=" border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none dark:border-purple-500 dark:text-purple-400 hover:text-blue-400 hover:border-blue-400"
                 >
@@ -169,7 +179,7 @@ const Upload = () => {
                 type='button'
                 className=" bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
                 >
-                    Post
+                    {savingPost ? 'Posting...' : 'Post'}
                 </button>
             </div>
           </div>

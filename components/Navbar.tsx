@@ -10,7 +10,7 @@ import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import { createOrGetUser } from "../utils";
 import useAuthStore from "../store/authStore";
 
-import Logo from "../utils/tiktik-logo.png";
+import Logo from "../utils/mdf-logo.png";
 import { error } from "console";
 
 const Navbar = () => {

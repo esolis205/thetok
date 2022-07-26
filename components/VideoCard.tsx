@@ -81,6 +81,7 @@ const VideoCard = ({ post }: IProps) => {
                 className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] 
                 w-[200px] rounded-2xl cursor-pointer bg-gray-100"
                 loop
+                autoPlay
               ></video>
             </Link>
 

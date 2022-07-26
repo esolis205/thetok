@@ -31,6 +31,7 @@ module.exports = {
       },
       colors: {
         primary: 'rgb(22, 24, 35)',
+        secondary: '#ff5c33'
       },
       height: {
         '88vh': '88vh',

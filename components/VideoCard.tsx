@@ -35,7 +35,7 @@ const VideoCard = ({ post }: IProps) => {
   
 
   return (
-    <div className=" flex flex-col border-b-2 border-gray-200 pb-6">
+    <div className=" flex flex-col border-b-2 border-gray-200 dark:border-[#333333] pb-6">
       <div>
         <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded">
           <div className=" md:w-16 md:h-16 w-10 h-10">
@@ -55,7 +55,7 @@ const VideoCard = ({ post }: IProps) => {
           <div>
             <Link href={`/profile/${post.postedBy._id}`}>
               <div className=" flex items-center gap-2">
-                <p className=" dark:text-[#F51997] flex gap-2 items-center md:text-md font-bold text-primary">
+                <p className=" dark:text-secondary flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}{" "}
                   {`
                     `}
@@ -79,7 +79,7 @@ const VideoCard = ({ post }: IProps) => {
                 src={post.video.asset.url}
                 ref={videoRef}
                 className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[530px] 
-                w-[200px] rounded-2xl cursor-pointer bg-gray-100"
+                w-[200px] rounded-2xl cursor-pointer bg-gray-100 dark:bg-[#0d0d0d] dark:shadow-[#1a1a1a] shadow-xl"
                 loop
                 autoPlay
               ></video>
@@ -92,13 +92,13 @@ const VideoCard = ({ post }: IProps) => {
                     <button
                     onClick={onVideoPress}
                     >
-                      <BsFillPauseFill className=" text-black text-2xl lg:text-4xl dark:text-[#F51997]" />
+                      <BsFillPauseFill className=" text-black text-2xl lg:text-4xl dark:text-secondary" />
                     </button>
                                     ) : (
                     <button
                     onClick={onVideoPress}
                     >
-                      <BsFillPlayFill className=" text-black text-2xl lg:text-4xl dark:text-[#F51997]" />
+                      <BsFillPlayFill className=" text-black text-2xl lg:text-4xl dark:text-secondary" />
                     </button>
                 )}
 
@@ -106,13 +106,13 @@ const VideoCard = ({ post }: IProps) => {
                   <button 
                   onClick={() => setIsVideoMuted(false)}
                   >
-                    <HiVolumeUp className=" text-black text-2xl lg:text-4xl dark:text-[#F51997]" />
+                    <HiVolumeUp className=" text-black text-2xl lg:text-4xl dark:text-secondary" />
                   </button>
                 ) : (
                   <button
                   onClick={() => setIsVideoMuted(true)}
                   >
-                    <HiVolumeOff className=" text-black text-2xl lg:text-4xl dark:text-[#F51997]" />
+                    <HiVolumeOff className=" text-black text-2xl lg:text-4xl dark:text-secondary" />
                   </button>
                 )}
               </div>

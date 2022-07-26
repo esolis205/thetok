@@ -83,16 +83,16 @@ const Upload = () => {
     setTopic('');
   }
   return (
-    <div className=" flex w-full h-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] dark:bg-[#000] justify-center">
-      <div className=" bg-white dark:bg-[#414242] rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-between items-center p-14 pt-6 w-[60%]">
+    <div className=" flex w-full h-full absolute left-0 top-[110px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] dark:bg-[#000] justify-center">
+      <div className=" bg-white dark:bg-[#262626] rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-between items-center p-14 pt-6 w-[60%]">
         <div>
           <div>
-            <p className=" text-2xl font-bold dark:text-purple-500">Upload Video</p>
+            <p className=" text-2xl font-bold dark:text-blue-400">Upload Video</p>
             <p className=" text-md text-gray-400">
               Post a video to your account
             </p>
           </div>
-          <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
+          <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-red-300 hover:bg-[#404040]">
             {isLoading ? (
               <p>Uploading...</p>
             ) : (
@@ -103,7 +103,7 @@ const Upload = () => {
                       src={videoAsset.url}
                       loop
                       controls
-                      className=" rounded-xl h-[450px] mt-14  bg-black"
+                      className=" rounded-xl h-[450px] mt-14 bg-black"
                     ></video>
                   </div>
                 ) : (
@@ -113,7 +113,7 @@ const Upload = () => {
                         <p className=" font-bold text-xl">
                           <FaCloudUploadAlt className=" text-gray-300 text-6xl" />
                         </p>
-                        <p className=" text-xl font-semibold dark:text-purple-500">Upload Video</p>
+                        <p className=" text-xl font-semibold dark:text-blue-400">Upload Video</p>
                       </div>
                       <p className=" text-gray-400 text-center mt-10 text-sm leading-8">
                         MP4 or WebM or OGG <br />
@@ -122,7 +122,7 @@ const Upload = () => {
                         Less than 2GB
                       </p>
                       <p
-                        className=" bg-[#F51997] text-center mt-10 rounded text-white
+                        className=" bg-blue-600 text-center mt-10 rounded text-white
                             text-md font-medium w-52 outline-none p-2"
                       >
                         Select file
@@ -146,17 +146,17 @@ const Upload = () => {
           </div>
         </div>
           <div className=" flex flex-col gap-3 pb-10">
-            <label className=" text-md font-medium dark:text-purple-400">Caption</label>
+            <label className=" text-md font-medium dark:text-blue-400">Caption</label>
             <input 
             type="text" 
             value={caption} 
             onChange={(e) => setCaption(e.target.value)} 
-            className=" rounded outline-none text-md border-gray-200 border-2 p-2 dark:border-purple-500"
+            className=" rounded outline-none text-md border-gray-200 border-2 p-2 dark:border-blue-500"
             />
-            <label className=" text-md font-medium dark:text-purple-400">Choose a Category</label>
+            <label className=" text-md font-medium dark:text-blue-400">Choose a Category</label>
             <select 
             onChange={(e) => setCategory(e.target.value)}
-            className=" outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer dark:border-purple-500">
+            className=" outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer dark:border-blue-500">
                 {topics.map((topic) => (
                     <option 
                     key={topic.name}
@@ -170,14 +170,14 @@ const Upload = () => {
                 <button 
                 onClick={handleDiscard}
                 type='button'
-                className=" border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none dark:border-purple-500 dark:text-purple-400 hover:text-blue-400 hover:border-blue-400"
+                className=" border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none dark:border-red-500 dark:text-red-400 hover:text-blue-400 hover:border-blue-400"
                 >
                     Discard
                 </button>
                 <button 
                 onClick={handlePost}
                 type='button'
-                className=" bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+                className=" bg-blue-600 text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
                 >
                     {savingPost ? 'Posting...' : 'Post'}
                 </button>

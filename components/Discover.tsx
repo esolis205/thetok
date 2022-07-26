@@ -1,16 +1,18 @@
-import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { topics } from '../utils/constants';
+import { topics } from "../utils/constants";
 
 const Discover = () => {
-const router = useRouter();
-const { topic } = router.query;
+  const router = useRouter();
+  const { topic } = router.query;
 
-const activeTopicStyle = "xl:border-2 hover:bg-primary xl:border-blue-500 px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-blue-500 dark:text-blue-500 gap-2";
+  const activeTopicStyle =
+    "xl:border-2 hover:bg-primary dark:hover:bg-primary xl:border-blue-500 px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-blue-500 dark:text-blue-500 gap-2";
 
-const topicStyle = "xl:border-2 hover:bg-primary xl:border-black dark:xl:border-[#F51997] px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-black dark:text-[#F51997] gap-2";
+  const topicStyle =
+    "xl:border-2 hover:bg-primary dark:hover:bg-[#404040] border-black dark:border-secondary px-3 py-2 rounded xl:rounded-full flex items-center justify-center cursor-pointer text-black dark:text-secondary gap-2";
 
   return (
     <div className=" dark:text-white xl:border-b-2 xl:border-gray-200 pb-6">
@@ -19,10 +21,10 @@ const topicStyle = "xl:border-2 hover:bg-primary xl:border-black dark:xl:border-
       </p>
       <div className=" flex gap-3 flex-wrap">
         {topics.map((item) => (
-          <Link 
-          href={`/?topic=${item.name}`} 
-          key={item.name}>
-            <div className={topic === item.name ? activeTopicStyle : topicStyle}>
+          <Link href={`/?topic=${item.name}`} key={item.name}>
+            <div
+              className={topic === item.name ? activeTopicStyle : topicStyle}
+            >
               <span className=" font-bold text-2xl xl:text-md">
                 {item.icon}
               </span>
@@ -34,7 +36,7 @@ const topicStyle = "xl:border-2 hover:bg-primary xl:border-black dark:xl:border-
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Discover
+export default Discover;

@@ -12,9 +12,7 @@ import SuggestedAccounts from "./SuggestedAccounts";
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
 
-  const userProfile = false;
-
-  const normalLink = ("flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded");
+  const normalLink = ("flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-secondary rounded");
   return (
     <div>
       <div
@@ -22,12 +20,12 @@ const Sidebar = () => {
        cursor-pointer"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
-        {showSidebar ? <ImCancelCircle className=" dark:text-[#F51997]" /> : <AiOutlineMenu className=" dark:text-[#F51997]" />}
+        {showSidebar ? <ImCancelCircle className=" dark:text-secondary" /> : <AiOutlineMenu className=" dark:text-secondary" />}
       </div>
       {showSidebar && (
         <div
           className=" xl:w-400 w-20 flex flex-col justify-
-        items-start border-r-2 border-gray-100 xl:border-0 p-3"
+        items-start border-r-2 border-gray-100 dark:border-[#1a1a1a] xl:border-0 p-3"
         >
           <div>
             <div className=" xl:border-b-2 border-gray-200 xl:pb-4">

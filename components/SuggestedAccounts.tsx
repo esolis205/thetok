@@ -33,7 +33,7 @@ const SuggestedAccounts = () => {
                  />
               </div>
               <div className="hidden xl:block">
-                <p className="flex gap-1 items-center text-md font-bold text-primary lowercase dark:text-[#F51997]">
+                <p className="flex gap-1 items-center text-md font-bold text-primary lowercase dark:text-secondary">
                   {user.userName.replace(' ', '')}
                   <GoVerified className="text-blue-400" />
                 </p>
